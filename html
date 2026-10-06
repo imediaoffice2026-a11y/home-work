@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape the Kaiju</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hud">
+        <span>⏱ Time: <b id="score">0.0</b>s</span>
+        <span>🏆 Best: <b id="best">0.0</b>s</span>
+    </div>
+
+    <div id="game">
+        <div id="city" aria-hidden="true"></div>
+        <span id="kaiju" src="🫈" alt="Kaiju" draggable="false">🫈</span>
+        <span id="player" src="🧑🏾‍🦽" alt="Player" draggable="false">🧑🏾‍🦽</span>
+    </div>
+
+    <div id="controls">
+        <button id="up" aria-label="Up">⬆️</button>
+        <div>
+            <button id="left" aria-label="Left">⬅️</button>
+            <button id="down" aria-label="Down">⬇️</button>
+            <button id="right" aria-label="Right">➡️</button>
+        </div>
+    </div>
+    <p class="hint">Arrow keys / WASD or the buttons to move. Press Enter to retry.</p>
+
+    <div id="game-over-overlay" class="hidden">
+        <div id="game-over-box">
+            <div id="game-over-image"><span>🖕🏾</span></div>
+            <p id="game-over-text">โดนไคจูจับแล้ว!</p>
+            <p id="final-score"></p>
+            <button id="retry-btn">ลองใหม่อีกครั้ง</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
