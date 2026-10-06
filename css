@@ -1,0 +1,149 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background-color: #ffffff;
+    font-family: system-ui, sans-serif;
+    text-align: center;
+}
+
+#hud {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 8px;
+    font-size: 18px;
+}
+
+#game {
+    /* City map: asphalt streets with yellow centre lines every 140px */
+    background-color: #1e1f26;
+    background-image:
+        linear-gradient(#e8c54766 0 4px, transparent 4px),
+        linear-gradient(90deg, #e8c54766 0 4px, transparent 4px);
+    background-size: 140px 140px;
+    background-position: -2px -2px;
+    width: 90%;
+    max-width: 800px;
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 8px;
+    touch-action: none;
+}
+
+#kaiju, #player {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;            /* matches SIZE in app.js */
+    height: 60px;
+    font-size: 48px;
+    line-height: 60px;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+    will-change: transform;
+}
+
+#controls {
+    margin-top: 10px;
+}
+
+button {
+    font-size: 24px;
+    margin: 4px;
+    cursor: pointer;
+    touch-action: none;
+    user-select: none;
+}
+
+.hint {
+    color: #666;
+    font-size: 14px;
+}
+
+#game-over-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+#game-over-overlay.hidden {
+    display: none;
+}
+
+#game-over-box {
+    background-color: #1a1a1a;
+    padding: 30px 40px;
+    border-radius: 16px;
+    text-align: center;
+    animation: pop-in 0.25s ease-out;
+}
+
+#game-over-image img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+}
+
+#game-over-text {
+    color: #ffffff;
+    font-size: 22px;
+    margin: 10px 0 4px;
+}
+
+#final-score {
+    color: #bbbbbb;
+    margin: 0 0 20px;
+}
+
+#retry-btn {
+    font-size: 18px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e63946;
+    color: #ffffff;
+}
+
+@keyframes pop-in {
+    from { transform: scale(0.6); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+/* ---------- City map ---------- */
+#city {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.building {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.45), inset 0 0 0 4px rgba(255, 255, 255, 0.06);
+    /* lit windows */
+    background-image: radial-gradient(circle, #ffd86b 28%, transparent 32%);
+    background-size: 20px 20px;
+    background-position: 10px 10px;
+    background-clip: padding-box;
+}
+
+.building.b1 { background-color: #3b4252; }
+.building.b2 { background-color: #4a3f55; }
+.building.b3 { background-color: #2f4858; }
+.building.b4 { background-color: #54434a; }
+.building.park {
+    background-color: #2d5a3d;
+    background-image: radial-gradient(circle, #3f7a52 40%, transparent 44%);
+    background-size: 26px 26px;
+    background-position: 6px 6px;
+}
